@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Development Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        /* Ensure the W3.CSS card styles are applied */
+/* Ensure the W3.CSS card styles are applied */
+/* W3.CSS card customization */
+.w3-card {
+    background: #1e1e1e; /* Dark background for cards */
+    border: 1px solid #333; /* Darker border color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+}
+
+/* Container for gallery images */
+.w3-container.w3-teal {
+    background-color: #1e1e1e; /* Dark background for container */
+    color: #e0e0e0; /* Light text color */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Ensure images cover the full width of their container */
+.w3-card img {
+    width: 100%;
+    border-radius: 5px; /* Match card border radius */
+}
+
+/* Adjust margins for rows */
+.w3-margin-top {
+    margin-top: 2rem;
+}
+
+/* Use W3.CSS third layout for three columns */
+.w3-third {
+    width: 33.33%; /* 33.33% width for each column (3 columns in a row) */
+}
+
+/* Modify text and link colors to match dark theme */
+.w3-container h5 {
+    color: #e0e0e0; /* Light text color */
+}
+
+
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #121212; /* Dark background for the body */
+            color: #e0e0e0; /* Light text color for contrast */
+        }
+
+        header {
+            background: #1e1e1e; /* Darker header background */
+            color: #e0e0e0;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            border: 2px solid #e0e0e0; /* Light border color */
+            border-radius: 5px; /* Rounded corners for the border */
+            padding: 0.5rem 1rem; /* Add padding to create space around the text */
+            background: #333; /* Background color to make it pop */
+            color: #e0e0e0; /* Text color to contrast with the background */
+            display: inline-block; /* Ensure it only takes up as much space as its content */
+            font-weight: bold; /* Make the text bold for emphasis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: Add a subtle shadow for depth */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #333;
+            border-radius: 5px;
+        }
+
+        main {
+            padding-top: 70px; /* Adjust according to header height */
+        }
+
+        .section {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: 2rem auto; /* Center the sections */
+            border: 1px solid #333; /* Darker border color */
+            border-radius: 10px; /* Rounded corners for the border */
+            background-color: #1e1e1e; /* Dark background for sections */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+        }
+
+        .section h1 {
+            margin-bottom: 1rem;
+            text-align: center; /* Center the heading */
+            color: #e0e0e0; /* Light text color for headings */
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Column direction for profile */
+            text-align: center; /* Center text */
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .profile-text {
+            max-width: 800px;
+            margin-top: 1rem; /* Space between image and text */
+        }
+
+        .skill-container, .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the skills/projects */
+        }
+
+        .skill, .project {
+            background: #2e2e2e; /* Darker background for skill/project boxes */
+            border: 1px solid #444; /* Darker border around skill/project boxes */
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem;
+            flex: 1 1 calc(33% - 2rem);
+            text-align: center; /* Center text inside skill/project boxes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
+
+        @media (max-width: 768px) {
+            .skill, .project {
+                flex: 1 1 100%; /* Stack items on smaller screens */
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 1rem;
+            color: #e0e0e0; /* Light text color for form labels */
+        }
+
+        form input, form textarea {
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background: #1e1e1e; /* Dark background for form fields */
+            color: #e0e0e0; /* Light text color for form fields */
+        }
+
+        form button {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: #333;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #555;
+        }
+
+        footer {
+            background: #1e1e1e; /* Darker footer background */
+            color: #e0e0e0;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; /* Space between icons */
+        }
+
+        .social-media a {
+            color: #e0e0e0; /* Light icon color */
+            font-size: 2rem; /* Icon size */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #ccc; /* Change icon color on hover */
+        }
+        /* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px;
+    color: #e0e0e0;
+}
+
+.close-btn {
+    color: #e0e0e0;
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ccc;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Self Development</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#narrative">Narrative</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="profile">
+                <img src="Gallary/myprofile.jpg" alt="Profile Picture" class="profile-img">
+                <div class="profile-text">
+                    <h1>About Me</h1>
+                    <p>Hello! My name is Aaron Barrientos, and I’m a 20-year-old student living in Tacurong City, Sultan Kudarat. I’m currently in my third year of pursuing a Bachelor of Science in Information Systems.</p>
+                    <p>As a person, I value loyalty, independence, and friendliness. I strive to maintain strong relationships with those around me while also enjoying my independence. My friendly nature helps me connect easily with others, making collaboration and teamwork enjoyable and effective.</p>
+                    <p>In addition to my studies, I’m passionate about technology and how it can be used to solve real-world problems. When I’m not focused on my coursework, you might find me exploring new tech trends, participating in local events, or simply spending time with friends and family. I’m excited about the future and look forward to the opportunities that lie ahead in the world of information systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h1>Developed Skills in Programming</h1>
+            <div class="skill-container">
+                <div class="skill">
+                    <h2>Web Development</h2>
+                    <p>Ordering System, Inventory System</p>
+                </div>
+                <div class="skill">
+                    <h2>Languages</h2>
+                    <p>PHP, JavaScript, CSS, Bootstrap</p>
+                </div>
+                <div class="skill">
+                    <h2>IDEs & Tools</h2>
+                    <p>Sublime Text, Vertrigo, XAMPP</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h1>Self Development</h1>
+            <div class="project-container">
+                <div class="project">
+                    <h2>Personal development</h2>
+                    <p>The seminar will explore how our parents' values and actions have shaped our personalities and life choices, highlighting both positive and challenging influences. It will provide strategies for healing unresolved conflicts and fostering emotional growth through forgiveness and empathy. Participants will celebrate the positive impact of their parents, recognizing their sacrifices and love, and will learn techniques to strengthen bonds and maintain connections, even with parents who have passed on. The seminar will also include personal reflection activities, such as letter writing and guided meditation, to deepen understanding and appreciation of our parental relationships.</p>
+                </div>
+                <div class="project">
+                    <h2>Activities self Development</h2>
+                    <ul>
+        <strong>Self-Reflection Journaling</strong>
+        <li><strong>Group Discussions</strong></li>
+        <li><strong>Role-Playing Scenarios</strong></li>
+        <li><strong>Vision Board Creations</strong></li>
+        <li><strong>Mindfulness Exercises</strong></li>
+          <li><strong>Letter Writing to Parents</strong></li>
+    </ul>
+                </div>
+                <div class="project">
+                    <h2>Professional Development and Interview Preparation</h2>
+                    <ul>
+        <strong>Business Formal for Interviews</strong>
+        <li><strong>Group Discussions</strong></li>
+        <li><strong>Mock Interviews</strong></li>
+        <li><strong>Q&A Preparation</strong></li>
+        <li><strong> Final Q&A and Feedback</strong></li>
+          
+    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+    <div class="w3-container w3-dark-grey">
+        <h1>Gallery</h1>
+    </div>
+
+    <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/kyut.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary1</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/1.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary2</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/2.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary3</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row-padding w3-margin-top">
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/3.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary4</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/4.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary5</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-third">
+            <div class="w3-card">
+                <img src="Gallary/5.jpg" style="width:100%">
+                <div class="w3-container">
+                    <h5>Gallary1</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <section id="narrative " class="section">
+            <h1>Narrative Report</h1>
+            <div class="project-container">
+                <div class="project">
+                    <h1>Narrative Report on the First Seminar: Developing Skills in Programming and Web Development</h1>
+    
+    <p>Our team recently participated in an intensive seminar designed to enhance our skills in web development and programming. The seminar aimed to provide practical experience in several crucial areas: building website structures, connecting websites to databases, and implementing CRUD (Create, Read, Update, Delete) functionalities. The technologies and tools covered included HTML, CSS, Bootstrap, PHP, and database management using Vertrigo and XAMPP.</p>
+    
+    <h2>Seminar Overview</h2>
+    
+    <p>The seminar was structured to guide participants through a comprehensive learning experience, focusing on both front-end and back-end development. The session was divided into several key parts:</p>
+    
+    <ul>
+        <li><strong>Introduction to Web Development Technologies</strong></li>
+        <li><strong>Building a Website Structure</strong></li>
+        <li><strong>Connecting Web to Database</strong></li>
+        <li><strong>Creating CRUD Operations</strong></li>
+        <li><strong>Hands-on Practice and Q&A</strong></li>
+    </ul>
+    
+    <h2>1. Introduction to Web Development Technologies</h2>
+    
+    <p>The seminar began with an overview of essential web development technologies. We explored:</p>
+    <ul>
+        <li><strong>HTML:</strong> The backbone of web content, used to structure the website.</li>
+        <li><strong>CSS:</strong> Styling language that enhances the visual presentation of the website.</li>
+        <li><strong>Bootstrap:</strong> A framework for building responsive and visually appealing web pages quickly.</li>
+        <li><strong>PHP:</strong> A server-side scripting language for creating dynamic web pages.</li>
+        <li><strong>MySQL:</strong> A relational database management system used to store and manage data.</li>
+    </ul>
+    
+    <h2>2. Building a Website Structure</h2>
+    
+    <p>The first practical session involved constructing the structure of a website. Participants were guided through:</p>
+    <ul>
+        <li><strong>HTML:</strong> Creating the basic layout with elements such as headers, footers, navigation bars, and content sections.</li>
+        <li><strong>CSS:</strong> Applying styles to improve the visual aesthetics of the HTML structure.</li>
+        <li><strong>Bootstrap:</strong> Utilizing pre-designed components to streamline the development process and ensure responsiveness across devices.</li>
+    </ul>
+    
+    <p>We built a sample website layout incorporating various HTML tags and Bootstrap components to create a clean and functional design.</p>
+    
+    <h2>3. Connecting Web to Database</h2>
+    
+    <p>Next, we focused on integrating the website with a database. The steps included:</p>
+    <ul>
+        <li><strong>Installing XAMPP/Vertrigo:</strong> Setting up the local server environment for PHP and MySQL.</li>
+        <li><strong>Configuring the Database:</strong> Creating a MySQL database and tables using phpMyAdmin.</li>
+        <li><strong>Connecting PHP to MySQL:</strong> Writing PHP scripts to establish a connection between the web application and the MySQL database.</li>
+    </ul>
+    
+    <p>We learned to use PHP’s MySQLi extension to connect to the database, execute queries, and retrieve data.</p>
+    
+    <h2>4. Creating CRUD Operations</h2>
+    
+    <p>The core of the seminar was implementing CRUD functionalities. We developed scripts to:</p>
+    <ul>
+        <li><strong>Create:</strong> Insert new records into the database.</li>
+        <li><strong>Read:</strong> Retrieve and display data from the database on the website.</li>
+        <li><strong>Update:</strong> Modify existing records in the database.</li>
+        <li><strong>Delete:</strong> Remove records from the database.</li>
+    </ul>
+    
+    <p>Participants practiced creating PHP scripts for each CRUD operation and tested them using the sample website.</p>
+    
+    <h2>5. Hands-on Practice and Q&A</h2>
+    
+    <p>The final part of the seminar was dedicated to hands-on practice. Participants worked on a project that required applying the concepts learned. This included:</p>
+    <ul>
+        <li>Designing a web form using HTML and Bootstrap.</li>
+        <li>Writing PHP code to handle form submissions and interact with the database.</li>
+        <li>Testing and debugging the CRUD functionalities.</li>
+    </ul>
+    
+    <p>A Q&A session followed, where participants could clarify doubts and seek advice on specific challenges faced during the project.</p>
+    
+    <h2>Conclusion</h2>
+    
+    <p>The seminar provided a thorough introduction to key aspects of web development. By the end of the session, participants had a solid foundation in:</p>
+    <ul>
+        <li>Building and styling a website.</li>
+        <li>Connecting a website to a MySQL database.</li>
+        <li>Implementing CRUD operations using PHP.</li>
+    </ul>
+    
+    <p>The practical experience gained through hands-on projects significantly enhanced our understanding of web development processes. The skills developed during this seminar are invaluable for future projects and will serve as a strong basis for advanced learning in web development.</p>
+    
+    <h2>Recommendations for Future Seminars</h2>
+    
+    <ul>
+        <li>Include more advanced topics, such as security best practices and API integration.</li>
+        <li>Provide additional resources for further learning and practice.</li>
+        <li>Extend the hands-on practice sessions to cover more complex scenarios.</li>
+    </ul>
+    
+    <p>This seminar was an excellent opportunity to develop our programming skills and gain practical experience in creating dynamic web applications.</p>
+                </div>
+            </div>
+        </section>
+        <section id="narrative " class="section">
+            <h1>Narrative Report</h1>
+            <div class="project-container">
+                <div class="project">
+                    <h1>Narrative Report on the Second Seminar: Personal Development and Interview Preparation</h1>
+ <section id="narrative" class="section">
+    <h1>Narrative Report on the Second Seminar: Personal Development and Interview Preparation</h1>
+    <p>We recently participated in a seminar focused on personal development and interview preparation. Held over one and a half days at a hotel in Marbel, this seminar provided valuable experiences, including self-realization exercises, family discussions, and practical interview preparation. This report outlines the key activities and insights gained during the seminar.</p>
+
+    <h2>Seminar Overview</h2>
+    <p>The seminar offered a comprehensive approach to personal and professional growth. The schedule included:</p>
+    <ul>
+        <li>Self-Realization and Family Reflection</li>
+        <li>Interview Preparation Practice</li>
+        <li>Professional Attire and Presentation</li>
+    </ul>
+
+    <h2>1. Self-Realization and Family Reflection</h2>
+    <p>The seminar began with activities aimed at encouraging participants to reflect on their personal goals, strengths, and areas for improvement. This segment included:</p>
+    <ul>
+        <li><strong>Self-Assessment Exercises:</strong> We engaged in activities designed to help identify personal values, goals, and aspirations. These exercises allowed us to reflect on our career paths and personal development.</li>
+        <li><strong>Family Discussions:</strong> We were encouraged to discuss our realizations and future plans with our families. This highlighted the importance of family support in personal growth and career development.</li>
+        <li><strong>Reflection Activities:</strong> Group discussions and individual reflection exercises helped us gain clarity about our personal and professional lives.</li>
+    </ul>
+
+    <h2>2. Interview Preparation Practice</h2>
+    <p>The second part of the seminar focused on preparing for job interviews. This segment included:</p>
+    <ul>
+        <li><strong>Mock Interviews:</strong> We participated in simulated interview scenarios to become more comfortable with common questions and refine our responses.</li>
+        <li><strong>Possible Interview Questions:</strong> We reviewed a list of potential interview questions, including both technical and behavioral ones, allowing us to prepare and practice our answers.</li>
+        <li><strong>Feedback and Improvement:</strong> After each mock interview, we received constructive feedback from facilitators and peers, helping us identify areas for improvement and refine our interview skills.</li>
+    </ul>
+
+    <h2>3. Professional Attire and Presentation</h2>
+    <p>The final segment emphasized the importance of professional attire and presentation:</p>
+    <ul>
+        <li><strong>Attire for Interviews:</strong> We discussed appropriate attire for job interviews and learned about the impact of first impressions. We were advised on choosing outfits that convey professionalism and confidence.</li>
+        <li><strong>Presentation Skills:</strong> We practiced presenting ourselves effectively during interviews, focusing on body language, communication skills, and overall presentation.</li>
+        <li><strong>Personal Branding:</strong> Tips on building a strong personal brand were provided, including how to showcase our skills and experiences effectively during an interview.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>The seminar provided valuable insights and practical skills beneficial for our professional journeys. Key takeaways included:</p>
+    <ul>
+        <li><strong>Increased Self-Awareness:</strong> Self-realization activities helped us better understand our personal and professional goals and the role of family support in our growth.</li>
+        <li><strong>Enhanced Interview Skills:</strong> Practice interviews and feedback sessions significantly improved our preparedness for job interviews, giving us confidence in handling various scenarios.</li>
+        <li><strong>Professional Presentation:</strong> Focus on professional attire and presentation equipped us with the knowledge to make a strong impression in job interviews and other professional settings.</li>
+    </ul>
+
+    <h2>Recommendations for Future Seminars</h2>
+    <ul>
+        <li><strong>Include More Industry-Specific Interview Practice:</strong> Tailor mock interviews to specific industries or job roles for more targeted practice.</li>
+        <li><strong>Provide Additional Resources:</strong> Offer resources and materials for continued self-improvement and interview preparation.</li>
+        <li><strong>Extend Networking Opportunities:</strong> Incorporate networking sessions to connect with industry professionals and peers.</li>
+    </ul>
+
+    <p>Overall, the seminar was an enriching experience that contributed to our personal development and career readiness. We look forward to applying the skills and insights gained in our future professional endeavors.</p>
+</section>
+        <section id="contact" class="section">
+            <h1>My Social Media</h1>
+            <div class="social-media">
+                <a href="https://instagram.com/yourusername" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/yourusername" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://tiktok.com/@yourusername" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 My Portfolio</p>
+        </div>
+    </footer>
+</body>
+</html>
